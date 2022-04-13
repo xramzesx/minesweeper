@@ -1,0 +1,276 @@
+/* latin */
+@font-face {
+    font-family: 'Henny Penny';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Henny Penny'), local('HennyPenny-Regular'), url(https://fonts.gstatic.com/s/hennypenny/v7/wXKvE3UZookzsxz_kjGSfPQtvXI.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Henny Penny';
+}
+
+body {
+    background-color: #545454 ;
+}
+
+#container{
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#form{
+    border: 3px outset lightgray;
+    background-color: #C0C0C0;
+    max-width: 350px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+label{
+    /* background: darkgray; */
+    /* border: 3px outset darkgray; */
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 10px;
+
+    display: block;
+}
+
+label input{
+    max-width: 157px;
+    border: 3px inset darkgray;
+    padding: 2.5px;
+}
+
+button{
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#game{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#board{
+    display: grid;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+
+#board *{
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    background-repeat: no-repeat;
+    background-size: cover ;
+
+    image-rendering: pixelated;
+
+    /* font-size: 1em; */
+}
+
+.field{
+    display: inline-block;
+    background: gray;
+    background-image: url('../img/klepa.PNG');
+    /* border: 3px outset darkgray; */
+    cursor: pointer;
+
+    /* padding: 10px; */
+}
+
+.selected{
+    background: darkgray;
+    border: 2px inset darkgray;
+    color: blueviolet;
+    image-rendering: pixelated;
+
+}
+
+.pbomb{
+    background: url('../img/pbomb.PNG');
+}
+
+.bomb{
+    background: red;
+    background-image: url('../img/bomb.PNG');
+
+    /* border: 3px inset red; */
+}
+
+.query{
+    background-image: url('../img/pyt.png');
+}
+
+.flag{
+    background-image: url('../img/flaga.PNG');
+}
+
+#infoDiv{
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+#recordDiv{
+    /* display: grid; */
+    /* grid-gap: 10px; */
+    width: 100%;
+    padding-top: 10px;
+    /* border-top: 5px dashed #222; */
+    max-width: 350px;
+    margin: 0 auto;
+    font-family: monospace;
+}
+
+.recordDiv::before,
+.Top10Records::before{
+    background: darkgray;
+
+    border: 3px outset darkgray;
+    padding: 10px;
+    /* font-weight: 600; */
+    font-size: 2em;
+    display: block;
+}
+
+.recordDiv::before{
+    content: '[ Tabela wyników: ]';
+}
+
+.Top10Records::before{
+    content: "[ Ogólne TOP10 ]";
+    /* background: black; */
+
+}
+
+/* #recordDiv>.rekord, */
+.record{
+    margin: 10px auto;
+    max-width: 300px;
+    text-align: center;
+    justify-items: center;
+    /* margin: 0 auto; */
+    padding: 0;
+    background: #999;
+    color: white;
+    /* border-radius: 5px; */
+}
+.record *{
+    font-family: monospace;
+    text-align: center;
+}
+.recordBar{
+    background: #aaaaaa;
+    padding: 5px;
+    border: 4px outset #a0a0a0;
+    color:  #222;
+    font-weight: 600;
+}
+
+.recordBar::before{
+    content: '[';
+    /* font-size: 1.5em; */
+}
+.recordBar::after{
+    content: ']';
+}
+
+.recordBar::after,
+.recordBar::before{
+    padding: 10px;
+}
+
+.recordValue{
+    background: #909090;
+    padding: 10px;
+    border: 4px outset #a0a0a0;
+    display: grid;
+    grid-template-columns: 1fr auto ;
+}
+.nick{
+    padding: 5px;
+    background: #222;
+    border: 4px inset #222;
+    border-right: none;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.Top10Records .nick{
+    grid-template-columns:  0.5fr 1fr;
+}
+.time{
+    padding: 5px;
+    background:yellowgreen;
+    border: 4px inset yellowgreen;
+    border-left: none;;
+}
+.mode{
+    background: lightgray;
+    padding: 2px;
+}
+span[class="mode"]{
+    background: red;
+    float:left
+}
+div[class="mode"]{
+    border: 5px outset lightgray; 
+    font-weight: 600;
+}
+
+.nick:has(> span){
+    background-color: blue;
+}
+/* .mode::before{
+    content: "Tryb : ";
+} */
+/* .time::before{
+    content: "czas: ";
+}
+.time::after{
+    content: "s";
+} */
+
+.record[place="1"] .recordBar,
+.record[place="2"] .recordBar,
+.record[place="3"] .recordBar{
+    color: white;
+}
+
+.record[place="1"]>*{
+    background: green;
+    border: 4px outset green;
+}
+.record[place="1"] .recordBar{
+    border: 4px outset green;
+}
+.record[place="2"]>*{
+    background: #4d0;
+    border: 4px outset yellowgreen;
+}
+.record[place="2"] .recordBar{
+    background: yellowgreen;
+}
+.record[place="3"]>*{
+    background: #d00;
+    border: 4px outset red;
+}
+.record[place="3"] .recordBar{
+    background: red;
+}
+/* .nick::after{
+    content: ' - ';
+    background: #222;
+} */
